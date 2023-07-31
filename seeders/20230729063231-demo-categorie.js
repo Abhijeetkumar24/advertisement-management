@@ -14,21 +14,21 @@ module.exports = {
     */
     await queryInterface.bulkInsert('Categories', [{
       category: 'vechicle',
-      subcategories: 'car',
+      subCategories: 'car',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       category: 'vechicle',
-      subcategories: 'car',
+      subCategories: 'bike',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       category: 'devices',
-      subcategories: 'mobile',
+      subCategories: 'mobile',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -36,35 +36,35 @@ module.exports = {
     },
     {
       category: 'devices',
-      subcategories: 'earphone',
+      subCategories: 'earphone',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       category: 'furniture',
-      subcategories: 'table',
+      subCategories: 'table',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       category: 'furniture',
-      subcategories: 'bed',
+      subCategories: 'bed',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       category: 'property',
-      subcategories: 'house',
+      subCategories: 'house',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       category: 'property',
-      subcategories: 'empty-land',
+      subCategories: 'empty-land',
       image: 'image.jpg',
       createdAt: new Date(),
       updatedAt: new Date()

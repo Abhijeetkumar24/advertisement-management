@@ -1,22 +1,20 @@
 import { error } from "console";
 import { createClient, SetOptions } from "redis";
-import UserCollection from "../../database/models/userModel";
+import User from "../../database/models/userModel";
+import bcrypt from "bcrypt";
 
-export default async function check_service(
-  email: string,
-  otp: string,
-  newpassword: string
-): Promise<any> {
+const newPasswordService = async(email: string, otp: string, newPassword: string): Promise<any> => {
   try {
     const client = createClient();
     client.on("error", (err) => console.log("redis Client Error", err));
     await client.connect();
+
     if (otp == (await client.get(email))) {
-      console.log("OTP verified");
-      const user:any = await UserCollection.findOne({ where: { email:email } });
-      console.log(`-----------------${user}`)
+      const user: any = await User.findOne({ where: { email: email } });
+
       if (user) {
-        user.password =newpassword;
+        const hashedPassword = await bcrypt.hash(newPassword , 2);
+        user.password = hashedPassword;
         await user.save();
       } else {
         throw error("Error updating Password");
@@ -25,9 +23,11 @@ export default async function check_service(
     } else {
       throw error("Invalid OTP");
     }
-  } catch (error) {
-    console.log(error);
+  } 
+  catch (error) {
     return error;
   }
 }
+
+export default newPasswordService;
 

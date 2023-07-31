@@ -12,7 +12,7 @@ module.exports = {
       category: {
         type: Sequelize.STRING
       },
-      subcategories: {
+      subCategories: {
         type: Sequelize.STRING
       },
       image: {

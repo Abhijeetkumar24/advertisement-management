@@ -15,7 +15,7 @@ module.exports= (sequelize, DataTypes) => {
   }
   Categorie.init({
     category: DataTypes.STRING,
-    subcategories: DataTypes.STRING,
+    subCategories: DataTypes.STRING,
     image: DataTypes.BLOB
   }, {
     sequelize,

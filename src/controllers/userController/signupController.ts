@@ -3,8 +3,8 @@ import { Request, Response } from "express";
 import multer from 'multer';
 import signupService from "../../services/userServices/signupService";
 
-// const storage = multer.memoryStorage(); 
-// const upload = multer({ storage: storage });
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage: storage }); 
 
 const signupController = async (req: Request, res: Response) => {
     try {

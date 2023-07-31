@@ -33,7 +33,7 @@ User.init(           //// init method is used to define model attribute( column)
         allowNull: false,
     },
     profileImage: {
-        type: DataTypes.STRING,
+        type: DataTypes.BLOB,
         allowNull: false,
     },
     phoneNumber:{
@@ -64,6 +64,7 @@ User.init(           //// init method is used to define model attribute( column)
 sequelize.sync({ alter: true })
   .then(() => {
     console.log('Database synchronized');
+    
   })
   .catch((error) => {
     console.error('Error synchronizing database:', error);

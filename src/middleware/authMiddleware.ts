@@ -15,6 +15,8 @@ const authMiddleware = async (req: Request, res: Response, next:NextFunction) =>
         const decodedToken = <JwtPayload>jwt.verify(token, 'this is my secret') ;
         req.body.id = decodedToken?.userId;  
         console.log(decodedToken);   
+
+        
                       
         next();
 

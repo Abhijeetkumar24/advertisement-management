@@ -1,21 +1,20 @@
 import { Request, Response } from "express";
-import { generate_service } from "../../services/userServices/generatePassService";
+import generateOtpService from "../../services/userServices/generateOtpService";
 
-export default async function gerneratePass(req: Request, res: Response) {
+const generateOtpController = async(req: Request, res: Response) => {
   try {
     const { email } = req.body;
-    const user = await generate_service(email);
-    if (!user) {
+    const otp = await generateOtpService(email);
+    if (!otp) {
       res.send("Invalid Credentials");
     } else {
-      res.status(201).json({
-        message: "Generate OTP",
-        user:user.email,
-      });
+      res.status(201).json({message: "OTP generated", OTP: otp});
     }
   } catch (error) {
     console.log(error);
-    res.send("Unable to Generate OTP to some error!");
+    res.send("Error in OTP Generation ");
   }
 }
+
+export default generateOtpController;
 

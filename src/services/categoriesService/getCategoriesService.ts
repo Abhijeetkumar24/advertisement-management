@@ -1,5 +1,5 @@
 
-import Categorie from '../../../models/categorie'
+import Categorie from '../../database/models/categoriesModel'
 
 
 

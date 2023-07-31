@@ -1,10 +1,12 @@
 import express from 'express';
-import updateProfileController from "../../controllers/userController/updateProfileController";
+import updateProfileController from '../../controllers/userController/updateProfileController';
 import authMiddleware from '../../middleware/authMiddleware';
+import sessionMiddleware from '../../middleware/sessionMiddleware';
+import { updateProfileJoiMiddleware } from '../../middleware/joiMiddleware';
 
 
 const router = express.Router();
 
-router.put('/updateprofile',authMiddleware, updateProfileController);
+router.post('/updateprofile',updateProfileJoiMiddleware ,authMiddleware,sessionMiddleware, updateProfileController);
 
 export default router;
