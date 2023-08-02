@@ -1,12 +1,19 @@
 import User from '../../database/models/userModel';
 import bcrypt from 'bcrypt';
-import { createClient } from 'redis';
+import Redis from 'ioredis';
+// import { createClient } from 'redis';
 import jwt, { JwtPayload }  from "jsonwebtoken";
 
 
 const loginService = async (email: string, password: string) => {
-  const client = createClient();
-  client.connect();
+  const client = new Redis({
+    host: '192.168.2.151',
+    port: 6379,
+  });
+  
+  
+  // const client = createClient();
+  // client.connect();
   try {
     const user:any = await User.findOne({where: {email}});
 

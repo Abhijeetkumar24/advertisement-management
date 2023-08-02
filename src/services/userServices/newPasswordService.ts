@@ -2,12 +2,19 @@ import { error } from "console";
 import { createClient, SetOptions } from "redis";
 import User from "../../database/models/userModel";
 import bcrypt from "bcrypt";
+import Redis from "ioredis";
 
 const newPasswordService = async(email: string, otp: string, newPassword: string): Promise<any> => {
   try {
-    const client = createClient();
-    client.on("error", (err) => console.log("redis Client Error", err));
-    await client.connect();
+    // const client = createClient();
+    // client.on("error", (err) => console.log("redis Client Error", err));
+    // await client.connect();
+    const client = new Redis({
+      host: '192.168.2.151',
+      port: 6379,
+    });
+    
+    
 
     if (otp == (await client.get(email))) {
       const user: any = await User.findOne({ where: { email: email } });

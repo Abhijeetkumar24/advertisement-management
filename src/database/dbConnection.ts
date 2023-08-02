@@ -3,7 +3,7 @@ require('dotenv').config();
 const dbPassword = process.env.DB_PASSWORD;
 
 const sequelize = new Sequelize('Advertisement' , 'postgres', dbPassword,{
-    host: 'localhost',
+    host: '192.168.2.151',
     dialect: 'postgres',
 });
 

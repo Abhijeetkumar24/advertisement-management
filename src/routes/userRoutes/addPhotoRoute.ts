@@ -6,6 +6,6 @@ import sessionMiddleware from '../../middleware/sessionMiddleware';
 
 const router = express.Router();
 
-router.post('/addphoto',authMiddleware,sessionMiddleware, addPhotoController);
+router.post('/addphoto',authMiddleware, sessionMiddleware, addPhotoController);
 
 export default router;

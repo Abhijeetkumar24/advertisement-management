@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import  setAddressService  from '../../services/userServices/setAddressService';
+import  { setAddressService }  from '../../services/userServices/setAddressService';
 
 const setAddressController = async (req: Request, res: Response) => {
   const {id, houseno, streetno, area, landmark, city, country, zipcode, state, status, addressType} = req.body;
